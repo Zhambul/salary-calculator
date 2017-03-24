@@ -10,9 +10,7 @@ public class MonthInfo {
     @JsonIgnore
     private final int month;
     private final String name;
-    @JsonIgnore
     private final int firstHalfWorkingDays;
-    @JsonIgnore
     private final int secondHalfWorkingDays;
     private final int workingDays;
 

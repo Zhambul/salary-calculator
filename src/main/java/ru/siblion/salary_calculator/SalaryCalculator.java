@@ -91,7 +91,6 @@ public class SalaryCalculator {
         holidays.add(LocalDate.of(2017, 6, 12));
         holidays.add(LocalDate.of(2017, 11, 4));
         holidays.add(LocalDate.of(2017, 11, 6));
-
         return holidays;
     }
 
