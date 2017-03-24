@@ -13,7 +13,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.2.RELEASE</version>
     </parent>
-
     <build>
         <plugins>
 
@@ -26,10 +25,10 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
 
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -41,7 +40,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>ru.siblion.salary_calculator.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
