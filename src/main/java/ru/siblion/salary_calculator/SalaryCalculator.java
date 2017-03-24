@@ -1,12 +1,16 @@
 package ru.siblion.salary_calculator;
 
-import javafx.util.Pair;
+
+import com.sun.tools.javac.util.Pair;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.time.DayOfWeek.SATURDAY;
 import static java.time.DayOfWeek.SUNDAY;
