@@ -1,12 +1,12 @@
 package ru.siblion.salary_calculator;
 
-import javafx.util.Pair;
-
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.time.DayOfWeek.SATURDAY;
 import static java.time.DayOfWeek.SUNDAY;
@@ -35,24 +35,24 @@ public class SalaryCalculator {
     private List<MonthInfo> getMonthsInfo() {
         Year year = Year.of(2017);
         List<MonthInfo> result = new ArrayList<>();
-        Set<Pair<Integer, Integer>> holidays = getHolidays();
+        Set<LocalDate> holidays = getHolidays();
         for (int i = 1; i <= 12; i++) {
-            YearMonth yearMonth = year.atMonth(i);
-            int daysInMonths = yearMonth.getMonth().maxLength();
+            YearMonth month = year.atMonth(i);
             List<LocalDate> workingDaysInMonths = new ArrayList<>();
-            for (int k = 1; k <= daysInMonths; k++) {
-                if (!yearMonth.isValidDay(k)) {
+            for (int k = 1; k <= month.getMonth().maxLength(); k++) {
+                if (!month.isValidDay(k)) {
                     continue;
                 }
-                LocalDate day = yearMonth.atDay(k);
-                DayOfWeek dayOfWeek = day.getDayOfWeek();
-                if (dayOfWeek == SATURDAY || dayOfWeek == SUNDAY) {
+
+                LocalDate day = month.atDay(k);
+                if (day.getDayOfWeek() == SATURDAY || day.getDayOfWeek() == SUNDAY) {
                     continue;
                 }
-                Pair<Integer, Integer> monthAndDay = new Pair<>(day.getMonth().getValue(), day.getDayOfMonth());
-                if (holidays.contains(monthAndDay)) {
+
+                if (holidays.contains(day)) {
                     continue;
                 }
+
                 workingDaysInMonths.add(day);
             }
 
@@ -72,25 +72,26 @@ public class SalaryCalculator {
         return result;
     }
 
-    private Set<Pair<Integer, Integer>> getHolidays() {
-        Set<Pair<Integer, Integer>> holidays = new HashSet<>();
-        holidays.add(new Pair<>(1, 1));
-        holidays.add(new Pair<>(1, 2));
-        holidays.add(new Pair<>(1, 3));
-        holidays.add(new Pair<>(1, 4));
-        holidays.add(new Pair<>(1, 5));
-        holidays.add(new Pair<>(1, 6));
-        holidays.add(new Pair<>(1, 7));
-        holidays.add(new Pair<>(1, 8));
-        holidays.add(new Pair<>(2, 23));
-        holidays.add(new Pair<>(2, 24));
-        holidays.add(new Pair<>(3, 8));
-        holidays.add(new Pair<>(5, 1));
-        holidays.add(new Pair<>(5, 8));
-        holidays.add(new Pair<>(5, 9));
-        holidays.add(new Pair<>(6, 12));
-        holidays.add(new Pair<>(11, 4));
-        holidays.add(new Pair<>(11, 6));
+    private Set<LocalDate> getHolidays() {
+        Set<LocalDate> holidays = new HashSet<>();
+        holidays.add(LocalDate.of(2017, 1, 1));
+        holidays.add(LocalDate.of(2017, 1, 2));
+        holidays.add(LocalDate.of(2017, 1, 3));
+        holidays.add(LocalDate.of(2017, 1, 4));
+        holidays.add(LocalDate.of(2017, 1, 5));
+        holidays.add(LocalDate.of(2017, 1, 6));
+        holidays.add(LocalDate.of(2017, 1, 7));
+        holidays.add(LocalDate.of(2017, 1, 8));
+        holidays.add(LocalDate.of(2017, 2, 23));
+        holidays.add(LocalDate.of(2017, 2, 24));
+        holidays.add(LocalDate.of(2017, 3, 8));
+        holidays.add(LocalDate.of(2017, 5, 1));
+        holidays.add(LocalDate.of(2017, 5, 8));
+        holidays.add(LocalDate.of(2017, 5, 9));
+        holidays.add(LocalDate.of(2017, 6, 12));
+        holidays.add(LocalDate.of(2017, 11, 4));
+        holidays.add(LocalDate.of(2017, 11, 6));
+
         return holidays;
     }
 
