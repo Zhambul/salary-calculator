@@ -14,7 +14,7 @@ public class YearReport {
         this.salary = salary;
     }
 
-    private final List<MonthReport> months = new ArrayList<MonthReport>();
+    private final List<MonthReport> months = new ArrayList<>();
 
     public List<MonthReport> getMonths() {
         return new ArrayList<>(months);
