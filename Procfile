@@ -1,1 +1,1 @@
-web:  java -jar target/salary-calculator-1.0-SNAPSHOT.jar
+web:  java  -Dserver.port=$PORT -jar target/salary-calculator-1.0-SNAPSHOT.jar
