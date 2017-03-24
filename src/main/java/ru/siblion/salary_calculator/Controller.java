@@ -23,6 +23,4 @@ public class Controller {
     public YearReport salary(@PathVariable double salary) {
         return calculator.calculateForYear(salary);
     }
-
-
 }

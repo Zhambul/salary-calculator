@@ -1,1 +1,1 @@
-web:  java -jar target/salary-calculator-1.0-SNAPSHOT.jar ru.siblion.salary_calculator.Main
+web:  java -jar target/salary-calculator-1.0-SNAPSHOT.jar
